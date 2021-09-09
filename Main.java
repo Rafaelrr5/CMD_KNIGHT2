@@ -1,10 +1,12 @@
-import java.util.Scanner;
-import java.io.File;import java.io.IOException;import javax.sound.sampled.*;
-import java.util.Random; 
+//Import de scanner | abrir o arquivo da música | exceção para a função do CLS | tocar a música e manipulá-la | gerar números aleatórios
+import java.util.Scanner; import java.io.File; import java.io.IOException;import javax.sound.sampled.*; import java.util.Random;
+
 public class Main{
 
-    public static final int senha = 1234; //constante
+    //Constante para senha do menu de administrador
+    public static final int senha = 1234; 
 
+    //Classe para a criação de um personagem guerreiro
     public static Personagem classeGuer(){
 
         Personagem user = new Personagem(1);
@@ -13,6 +15,7 @@ public class Main{
     
     }
 
+    //Classe para a criação de um personagem arqueiro
     public static Personagem classeArq(){
 
         Personagem user = new Personagem(1,1);
@@ -21,6 +24,7 @@ public class Main{
 
     }
 
+    //Limpar terminal
     public static void cls() throws IOException, InterruptedException{
         if (System.getProperty("os.name").contains("Windows")){
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -30,6 +34,7 @@ public class Main{
         }
     }
 
+    //Ativar/desativar música
     public static boolean Musiquinha(boolean musica){
         
         return musica =! musica;
@@ -38,20 +43,21 @@ public class Main{
 
     public static void main(String[] args) throws IOException, InterruptedException, LineUnavailableException, UnsupportedAudioFileException {
   
+        //Configurações para tocar a música
         File file = new File("D:/Downloads/pastas/progsjava/TrabPOO/musica.wav");
         AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
         Clip clip = AudioSystem.getClip();
         clip.open(audioStream);
 
-        Scanner ent = new Scanner(System.in);
-        String nome="", nomeclasse="";
-        int classe=0, escolha=0, inicio=0;
-        Personagem user = new Personagem(1); Personagem useradm = new Personagem(1); 
-        Personagem users[] = new Personagem[2];
-        boolean musica=true;
-        Random gerador = new Random();
-        user.addInv("1", "item");
-        
+        Scanner ent = new Scanner(System.in); //Criação do scanner
+        String nome="", nomeclasse=""; //Nome do personagem criado e da classe para o output
+        int classe=0, escolha=0, inicio=0; //Determinar a classe que será criada, escolha no menu e se ele já iniciou o jogo uma vez
+        Personagem user = new Personagem(1); Personagem useradm = new Personagem(1); //Criação do personagem normal e administrador
+        Personagem users[] = new Personagem[2]; //Vetor para guardar os personagens
+        boolean musica=true; //Determinar a ativação e desativação da música
+        Random gerador = new Random(); //Gerador de números aleatórios
+        user.addInv("1", "item"); //Inicialização do futuro sistema de inventário
+         
         System.out.printf("Carregando");
         for(int i=0;i<3;i++){
             System.out.printf(".");
@@ -59,7 +65,9 @@ public class Main{
         }
 
         cls();
-        clip.start();
+        //Inicia a música
+        clip.start(); 
+        //Primeira inicialização
         System.out.println("Saudações, aventureiro! Bem vindo a...\n");
 
         System.out.println("  ___         ___                     ___   ___         ___         ___  ");
@@ -70,7 +78,7 @@ public class Main{
 
         Thread.sleep(1100);
 
-        while(escolha!=1 && escolha!=4){
+        while(escolha!=1 && escolha!=4){ //Rodar o menu para ser possível voltar para cá
         
         if(inicio!=0){
         cls();
@@ -81,6 +89,7 @@ public class Main{
         System.out.println("  ---         ---                     ---   ---                     ---  \n\n");
         }inicio++;
         
+        //Menu principal
         System.out.println("Este é o menu principal! Escolha sabiamente uma opção:");
         System.out.printf("1 - Iniciar o jogo\n");
         System.out.printf("2 - Ativar/Desativar música\n");
@@ -127,6 +136,7 @@ public class Main{
                 break;
             case 5:
                 System.out.println("Você está prestes a entrar no menu de administrador, digite a senha para continuar"); 
+                //Variável para confirmação da senha para entrar no menu de administrador
                 int senhaconf = ent.nextInt();
                 ent.nextLine();
 
@@ -141,6 +151,7 @@ public class Main{
 
                     switch(adm){
                         case 1:
+                            //Criação do personagem administrador
                             users[1] = useradm;
                             System.out.println("Digite o nome do personagem: ");
                             ent.nextLine();
@@ -240,6 +251,7 @@ public class Main{
         ent.nextLine();
         nome = ent.nextLine();
         
+        //While para caso o usuário não escolha uma das opções disponíveis
         while(classe < 1 || classe > 2){
         cls();
         System.out.printf("Quase lá %s, escolha sua classe:",nome);
@@ -269,6 +281,7 @@ public class Main{
 
         cls();
     
+        //Atributos iniciais da classe escolhida   
         System.out.printf("Seus status no nível %d como %s são:\n\nAtaque - %d\nDefesa - %d\nVida - %d\nVelocidade de Ataque: %d\nOuro na Bolsa: %d",
         user.getNvl(),nomeclasse,user.getAtktotal(),user.getDeftotal(),user.getVidatotal(),user.getAtkspeedtotal(),user.getOuro()); 
 

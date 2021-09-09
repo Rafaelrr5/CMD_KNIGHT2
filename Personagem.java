@@ -1,13 +1,14 @@
-import java.util.Map;
 
-;public class Personagem {
+
+public class Personagem {
     
+    //Variáveis utilizadas em todos os personagens criados
     private int nvl,ouro,vidatotal,atktotal,deftotal,atkspeedtotal;
     private String nome;      
 
-    public static final int desconto = 10; //constante
+    public static final int desconto = 10; //Constante de desconto que será utilizada para diminuir o preço de compras em lojas
     
-
+    //Criação de personagem guerreiro
     protected Personagem(int espada){
 
         Guerreiro userg = new Guerreiro();
@@ -19,6 +20,7 @@ import java.util.Map;
         
     }
 
+    //Criação de personagem arqueiro
     protected Personagem(int arco, int flecha){
 
         Arqueiro usera = new Arqueiro();
@@ -28,8 +30,6 @@ import java.util.Map;
         Inventario inva = new Inventario();
 
     }
-
-
 
     public void addInv(String id, String item){
 

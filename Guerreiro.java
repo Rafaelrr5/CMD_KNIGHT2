@@ -2,6 +2,7 @@ public class Guerreiro {
     
     private int vida, atk, def, energia, danoEsp, atkspeedesp;
 
+    //Inicialização dos atributos básicos da classe guerreiro 
     protected Guerreiro(){
 
         vida = 100; atk = 25; def = 25; energia = 80;

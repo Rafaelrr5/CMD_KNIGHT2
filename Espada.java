@@ -2,6 +2,7 @@ public class Espada {
     
     private int dano, atkspeed, preco;
 
+    //Inicialização da espada pegando parâmetros
     protected Espada (int dano, int atkspeed){
         this.dano = dano;
         this.atkspeed = atkspeed;

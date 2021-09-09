@@ -4,6 +4,7 @@ import java.io.IOException;
 
 public class Batalha {
     
+    //Todas as variáveis que serão mudadas no meio da batalha
     public static int vidamonstro=30, vidaplayer=30;
     int escolha, confirma, atkmonstro, atkplayer, verifica=0;
     Random gerador = new Random();
@@ -25,6 +26,7 @@ public class Batalha {
 
         switch(escolha){
             case 1:
+                //Intervalo para a geração do número aleatório 
                 vidamonstro = vidamonstro - gerador.nextInt((user.getAtktotal() - (user.getAtktotal() - 10)) + (user.getAtktotal()-10));
 
             break;
@@ -59,7 +61,8 @@ public class Batalha {
     
     }
 
-    protected Batalha(Personagem user, int confirma, int escolha){ // tutorial
+    //Batalha do tutorial
+    protected Batalha(Personagem user, int confirma, int escolha){ 
 
         Monstro novo = new Monstro();
         Scanner ent = new Scanner(System.in);
@@ -76,6 +79,7 @@ public class Batalha {
 
         switch(escolha){
             case 1:
+                //Intervalo para a geração do número aleatório 
                 vidamonstro = vidamonstro - gerador.nextInt((user.getAtktotal() - (user.getAtktotal() - 10)) + (user.getAtktotal()-10));
 
             break;

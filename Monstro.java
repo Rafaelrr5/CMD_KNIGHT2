@@ -3,9 +3,8 @@ public class Monstro {
     private int categoria, vidatot, dano, atkspeed;
     private String nome;
 
+    //Inicialização do montro pegando parâmetros gerados aleatoriamente
     protected Monstro(int categoria, int vida, int vidaat, int dano, int atkspeed){
-
-
 
         switch(categoria){
             case 1:
@@ -26,6 +25,7 @@ public class Monstro {
 
     }
 
+    //Inicialização do montro pro tutorial
     protected Monstro(){
 
         this.vidatot = 50; this.dano = 1; this.atkspeed = 1; this.categoria = 1;

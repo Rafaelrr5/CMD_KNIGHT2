@@ -2,6 +2,7 @@ public class Arco {
     
     private int dano, atkspeed;
 
+    //Inicialização do arco pegando parâmetros
     protected Arco(int dano,int atkspeed){
         dano = this.dano;
         atkspeed = this.atkspeed;

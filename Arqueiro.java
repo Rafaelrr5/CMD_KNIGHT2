@@ -2,6 +2,18 @@ public class Arqueiro {
     
     private int vida, atk, def, energia, danoArco, atkspeedArco;
 
+    //Inicialização dos atributos básicos da classe guerreiro
+    protected Arqueiro(){
+
+        vida = 80; atk = 40; def = 10; energia = 100;
+
+        Arco inicial = new Arco (2,1);
+
+        danoArco = inicial.getDano();
+        atkspeedArco = inicial.getAtkspeed();
+
+    }
+
     public int getDanoArco() {
         return danoArco;
     }
@@ -16,17 +28,6 @@ public class Arqueiro {
 
     public void setAtkspeedArco(int atkspeedArco) {
         this.atkspeedArco = atkspeedArco;
-    }
-
-    protected Arqueiro(){
-
-        vida = 80; atk = 40; def = 10; energia = 100;
-
-        Arco inicial = new Arco (2,1);
-
-        danoArco = inicial.getDano();
-        atkspeedArco = inicial.getAtkspeed();
-
     }
 
     public int getVida() {

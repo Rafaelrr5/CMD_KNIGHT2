@@ -2,7 +2,11 @@ public class Flecha {
     
     private int tipo, dano;
 
-    
+     //Inicialização da flecha pegando parâmetros
+     protected Flecha(int dano,int tipo){
+        dano = this.dano;
+        tipo = this.tipo;
+    }
 
     public int getTipo() {
         return tipo;
