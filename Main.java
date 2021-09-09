@@ -47,7 +47,7 @@ public class Main{
         String nome="", nomeclasse="";
         int classe=0, escolha=0, inicio=0;
         Personagem user = new Personagem(1); Personagem useradm = new Personagem(1); 
-        Personagem users[] = new Personagem[5];
+        Personagem users[] = new Personagem[2];
         boolean musica=true;
         Random gerador = new Random();
         user.addInv("1", "item");
@@ -103,7 +103,6 @@ public class Main{
                 else{
                     clip.stop();
                 }
-
                 break;
             case 3:
                 cls();
@@ -142,106 +141,75 @@ public class Main{
 
                     switch(adm){
                         case 1:
+                            users[1] = useradm;
                             System.out.println("Digite o nome do personagem: ");
                             ent.nextLine();
-                            String nomeadm = ent.nextLine();
-                            useradm.setNome(nomeadm);
+                            users[1].setNome(ent.nextLine());
                             System.out.println("Personagem criado! Digite enter para continuar");
                             ent.nextLine();
                             break;
                         case 2:
-                            System.out.println("Pesquise o nome do personagem para editá-lo");
+                            System.out.println("Pesquise o vetor do personagem para editá-lo (0 para personagem normal e 1 para criado por administrador)");
                             ent.nextLine();
-                            nomeadm = ent.nextLine();
-                            if(nomeadm.equals(user.getNome())  || nomeadm.equals(useradm.getNome()) ){
+                            int vetor = ent.nextInt();
+                            if(vetor==0 || vetor==1){
                                 cls();
-                                System.out.printf("\n\nVocê entrou no menu do personagem %s, o que deseja editar?", nome);
+                                System.out.printf("\n\nVocê entrou no menu do personagem %s, o que deseja editar?", users[vetor].getNome());
                                 System.out.println("\n1 - Nivel\n2 - Ouro\n3 - Vida Total\n4 - Ataque");
-                                System.out.println("5 - Defesa Total\n6 - Atack Speed\n7 - Apagar personagem");
+                                System.out.println("5 - Defesa Total\n6 - Atack Speed\n7 - Apagar personagem\n8 - Voltar ao menu");
                                 adm = ent.nextInt();
-                                if(nomeadm.equals(user.getNome())){
+
                                 switch(adm){
                                     case 1:
                                         System.out.println("Defina o novo nível: ");
-                                        user.setNvl(ent.nextInt());
-                                        System.out.printf("Nível setado para %d", user.getNvl());
-                                    break;
+                                        users[vetor].setNvl(ent.nextInt());
+                                        System.out.printf("Nível setado para %d no personagem %s\n\n", users[vetor].getNvl(),users[vetor].getNome());
+                                        
+                                        break;
                                     case 2:
                                         System.out.println("Defina o nova quantia de ouro: ");
-                                        user.setOuro(ent.nextInt());
-                                        System.out.printf("Ouro setado para %d", user.getOuro());
-                                    break;
+                                        users[vetor].setOuro(ent.nextInt());
+                                        System.out.printf("Ouro setado para %d no personagem %s", users[vetor].getOuro(),users[vetor].getNome());
+                                    
+                                        break;
                                     case 3:
                                         System.out.println("Defina a nova vida total: ");
-                                        user.setVidatotal(ent.nextInt());
-                                        System.out.printf("Vida setada para %d", user.getVidatotal());
-                                    break;
+                                        users[vetor].setVidatotal(ent.nextInt());
+                                        System.out.printf("Vida setada para %d no personagem %s", users[vetor].getVidatotal(),users[vetor].getNome());
+                                   
+                                        break;
                                     case 4:
                                         System.out.println("Defina o novo ataque total: ");
-                                        user.setAtktotal(ent.nextInt());
-                                        System.out.printf("Ataque setado para %d", user.getAtktotal());
-                                    break;
+                                        users[vetor].setAtktotal(ent.nextInt());
+                                        System.out.printf("Ataque setado para %d no personagem %s", users[vetor].getAtktotal(),users[vetor].getNome());
+                                    
+                                        break;
                                     case 5:
                                         System.out.println("Defina a nova defesa total: ");
-                                        user.setDeftotal(ent.nextInt());
-                                        System.out.printf("Defesa setada para %d", user.getDeftotal());
-                                    break;
+                                        users[vetor].setDeftotal(ent.nextInt());
+                                        System.out.printf("Defesa setada para %d no personagem %s", users[vetor].getDeftotal(),users[vetor].getNome());
+                                    
+                                        break;
                                     case 6:
                                         System.out.println("Defina o novo atack speed: ");
-                                        user.setAtkspeedtotal(ent.nextInt());
-                                        System.out.printf("Atack speed setado para %d", user.getAtkspeedtotal());
-                                    break;
+                                        users[vetor].setAtkspeedtotal(ent.nextInt());
+                                        System.out.printf("Atack speed setado para %d no personagem %s", users[vetor].getAtkspeedtotal(),users[vetor].getNome());
+                                    
+                                        break;
                                     case 7:
-                                        user = null;
+                                        users[vetor] = null;
+                                    break;
+                                    case 8:
                                     break;
                                     default:
+                                    System.out.println("Opção inválida, voltando ao menu...");
+                                    Thread.sleep(1500);
                                 }
-                                
-                            }
-                            
-                                else if(nomeadm.equals(useradm.getNome())){
-                                switch(adm){
-                                    case 1:
-                                        System.out.println("Defina o novo nível: ");
-                                        useradm.setNvl(ent.nextInt());
-                                        System.out.printf("\nNível setado para %d!\n", useradm.getNvl());
-                                    break;
-                                    case 2:
-                                        System.out.println("Defina o nova quantia de ouro: ");
-                                        useradm.setOuro(ent.nextInt());
-                                        System.out.printf("\nOuro setado para %d\n", useradm.getOuro());
-                                    break;
-                                    case 3:
-                                        System.out.println("Defina a nova vida total: ");
-                                        useradm.setVidatotal(ent.nextInt());
-                                        System.out.printf("\nVida setada para %d\n", useradm.getVidatotal());
-                                    break;
-                                    case 4:
-                                        System.out.println("Defina o novo ataque total: ");
-                                        useradm.setAtktotal(ent.nextInt());
-                                        System.out.printf("\nAtaque setado para %d\n", useradm.getAtktotal());
-                                    break;
-                                    case 5:
-                                        System.out.println("Defina a nova defesa total: ");
-                                        useradm.setDeftotal(ent.nextInt());
-                                        System.out.printf("Defesa setada para %d\n", useradm.getDeftotal());
-                                    break;
-                                    case 6:
-                                        System.out.println("Defina o novo atack speed: ");
-                                        useradm.setAtkspeedtotal(ent.nextInt());
-                                        System.out.printf("\nAtack speed setado para %d\n", useradm.getAtkspeedtotal());
-                                    break;
-                                    case 7:
-                                        useradm = null;
-                                    break;
-                                    default:
-                                }
-                            }
                             
                             }
 
                             else{
-                                System.out.println("Não existe nenhum personagem criado com esse nome, digite enter pra voltar ao menu");
+                                System.out.println("Digite uma posição válida, clique enter para voltar");
                                 ent.nextLine();
                                 break;
                             }
@@ -250,6 +218,8 @@ public class Main{
                         case 3:
                         break;
                         default:
+                        System.out.println("Opção inválida");
+                        Thread.sleep(500);
                     }
                     
                 }
@@ -262,9 +232,6 @@ public class Main{
                 }
 
             default:
-            System.out.println("Insira um número válido!");
-            Thread.sleep(1000);
-            break;
         }
 
     }
@@ -282,10 +249,12 @@ public class Main{
         switch(classe){
             case 1:
             user = classeGuer();
+            users[0] = user;
             nomeclasse = "Guerreiro";
             break;
             case 2:
             user = classeArq();
+            users[0] = user;
             nomeclasse = "Arqueiro";
             break;
             default:
