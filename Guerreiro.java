@@ -1,16 +1,16 @@
-public class Guerreiro {
+public class Guerreiro extends Espada{
     
     private int vida, atk, def, energia, danoEsp, atkspeedesp;
 
     //Inicialização dos atributos básicos da classe guerreiro 
     protected Guerreiro(){
 
+        super(2,1);
+
         vida = 100; atk = 25; def = 25; energia = 80;
 
-        Espada inicial = new Espada(2,1);
-
-        danoEsp = inicial.getDano();
-        atkspeedesp = inicial.getAtkspeed();
+        danoEsp = getDano();
+        atkspeedesp = getAtkspeed();
 
     }
 

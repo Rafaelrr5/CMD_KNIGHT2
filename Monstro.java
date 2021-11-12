@@ -1,10 +1,20 @@
+import java.util.Random;
+
 public class Monstro {
     
     private int categoria, vidatot, dano, atkspeed;
     private String nome;
+    Random n = new Random();
 
     //Inicialização do montro pegando parâmetros gerados aleatoriamente
-    protected Monstro(int categoria, int vida, int vidaat, int dano, int atkspeed){
+    protected Monstro(){
+
+        this.categoria = 
+        this.vidatot = 
+        this.dano = 
+        this.atkspeed = 
+
+        categoria = n.nextInt(3);
 
         switch(categoria){
             case 1:
@@ -12,10 +22,12 @@ public class Monstro {
             break;
 
             case 2:
+            nome = "Orc";
 
             break;
 
             case 3:
+            nome = "Slime";
 
             break;
 
@@ -26,10 +38,10 @@ public class Monstro {
     }
 
     //Inicialização do montro pro tutorial
-    protected Monstro(){
+    protected Monstro(int vidatot, int  dano, int atkspeed, int categoria){
 
-        this.vidatot = 50; this.dano = 1; this.atkspeed = 1; this.categoria = 1;
-        
+        vidatot = 50;  dano = 1;  atkspeed = 1; categoria = 1;
+
         switch(categoria){
             case 1:
             nome = "Esqueleto";

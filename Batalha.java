@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.Random;
 import java.io.IOException;
 
@@ -8,6 +9,9 @@ public class Batalha {
     public static int vidamonstro=30, vidaplayer=30;
     int escolha, confirma, atkmonstro, atkplayer, verifica=0;
     Random gerador = new Random();
+
+    //Cria um histórico infinito de quais monstros você já matou
+    ArrayList <String> hist = new ArrayList<String>();
 
     protected Batalha(Personagem user, int escolha) throws IOException, InterruptedException{
 
@@ -48,6 +52,9 @@ public class Batalha {
 
         if(vidamonstro<=0){
             System.out.println("Boa cria");
+
+           //Adiciona monstro ao histórico de abates 
+            hist.add(novo.getNome());
             break;
         }
 

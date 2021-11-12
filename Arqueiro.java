@@ -1,16 +1,16 @@
-public class Arqueiro {
+public class Arqueiro extends Arco{
     
     private int vida, atk, def, energia, danoArco, atkspeedArco;
 
     //Inicialização dos atributos básicos da classe guerreiro
     protected Arqueiro(){
 
+        super(2, 1);
+
         vida = 80; atk = 40; def = 10; energia = 100;
 
-        Arco inicial = new Arco (2,1);
-
-        danoArco = inicial.getDano();
-        atkspeedArco = inicial.getAtkspeed();
+        danoArco = getDano();
+        atkspeedArco = getAtkspeed();
 
     }
 

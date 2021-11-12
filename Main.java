@@ -45,19 +45,39 @@ public class Main{
   
         //Configurações para tocar a música
         File file = new File("D:/Downloads/pastas/progsjava/TrabPOO/musica.wav");
+
         AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+
         Clip clip = AudioSystem.getClip();
+
         clip.open(audioStream);
 
-        Scanner ent = new Scanner(System.in); //Criação do scanner
-        String nome="", nomeclasse=""; //Nome do personagem criado e da classe para o output
-        int classe=0, escolha=0, inicio=0; //Determinar a classe que será criada, escolha no menu e se ele já iniciou o jogo uma vez
-        Personagem user = new Personagem(1); Personagem useradm = new Personagem(1); //Criação do personagem normal e administrador
-        Personagem users[] = new Personagem[2]; //Vetor para guardar os personagens
-        boolean musica=true; //Determinar a ativação e desativação da música
-        Random gerador = new Random(); //Gerador de números aleatórios
-        user.addInv("1", "item"); //Inicialização do futuro sistema de inventário
-         
+
+        //Criação do scanner
+        Scanner ent = new Scanner(System.in); 
+        
+        //Nome do personagem criado e da classe para o output
+        String nome="", nomeclasse=""; 
+
+        //Determinar a classe que será criada, escolha no menu e se ele já iniciou o jogo uma vez
+        int classe=0, escolha=0, inicio=0; 
+
+        //Criação do personagem normal e administrador
+        Personagem user = new Personagem(1); Personagem useradm = new Personagem(1); 
+
+        //Vetor para guardar os personagens
+        Personagem users[] = new Personagem[2]; 
+
+        //Determinar a ativação e desativação da música
+        boolean musica=true; 
+
+        //Gerador de números aleatórios
+        Random gerador = new Random();
+        
+        //Inicialização do futuro sistema de inventário
+        user.addInv("1", "item"); 
+
+
         System.out.printf("Carregando");
         for(int i=0;i<3;i++){
             System.out.printf(".");
@@ -65,11 +85,12 @@ public class Main{
         }
 
         cls();
+
         //Inicia a música
         clip.start(); 
+
         //Primeira inicialização
         System.out.println("Saudações, aventureiro! Bem vindo a...\n");
-
         System.out.println("  ___         ___                     ___   ___         ___         ___  ");
         System.out.println(" |     |\\ /|   | |       |  /  |\\  |   |   |     |   |   |             | ");
         System.out.println(" |     | + |   + |       |-+   | + |   +   | +-  |-+-|   +          -+-  ");
@@ -78,7 +99,8 @@ public class Main{
 
         Thread.sleep(1100);
 
-        while(escolha!=1 && escolha!=4){ //Rodar o menu para ser possível voltar para cá
+        //Rodar o menu para ser possível voltar para cá
+        while(escolha!=1 && escolha!=4){ 
         
         if(inicio!=0){
         cls();
