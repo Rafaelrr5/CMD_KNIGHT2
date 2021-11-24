@@ -5,7 +5,7 @@ public class Arqueiro extends Arco{
     //Inicialização dos atributos básicos da classe guerreiro
     protected Arqueiro(){
 
-        super(2, 1);
+        super(2,1);
 
         vida = 80; atk = 40; def = 10; energia = 100;
 

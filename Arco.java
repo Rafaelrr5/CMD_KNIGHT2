@@ -4,9 +4,8 @@ public class Arco{
 
     //Inicialização do arco pegando parâmetros
     protected Arco(int dano,int atkspeed){
-        
-        dano = this.dano;
-        atkspeed = this.atkspeed;
+        this.dano = dano;
+        this.atkspeed = atkspeed;
     }
 
     public int getDano() {

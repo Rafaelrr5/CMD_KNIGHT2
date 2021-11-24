@@ -27,6 +27,7 @@ public class Personagem {
 
         this.nvl = 1; this.ouro = 10; this.vidatotal = usera.getVida();
         this.atktotal = usera.getAtk() + usera.getDanoArco();
+        this.atkspeedtotal = usera.getAtkspeedArco();
         
     }
 
