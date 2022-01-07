@@ -1,37 +1,42 @@
 import java.util.Random;
 
-public class Monstro {
+public abstract class Monstro {
     
     private int categoria, vidatot, dano, atkspeed;
-    private String nome;
+    private String classe;
     Random n = new Random();
 
-    //Inicialização do montro pegando parâmetros gerados aleatoriamente
+    //Inicialização do montro com parâmetros gerados aleatoriamente (batalhas aleatórias)
     protected Monstro(){
 
-        this.categoria = 
-        this.vidatot = 
-        this.dano = 
-        this.atkspeed = 
+        //Geração que não passa de 3 e também nunca é 0
+        this.categoria = (n.nextInt(3)) + 1;
 
-        categoria = n.nextInt(3);
-
+        //Categoria que o monstro vai ser (gerado aleatoriamente)
         switch(categoria){
             case 1:
-            nome = "Esqueleto";
+            classe = "Fraco";
+            //Atributos gerados que nunca serão iguais a 0
+            this.vidatot = n.nextInt(20) + 10;
+            this.dano = n.nextInt(5) + 1;
+            this.atkspeed = 1;
             break;
 
             case 2:
-            nome = "Orc";
-
+            classe = "Intermediário";
+            //Atributos gerados que nunca serão iguais a 0
+            this.vidatot = n.nextInt(40) + 20;
+            this.dano = n.nextInt(7) + 3;
+            this.atkspeed = 2;
             break;
 
             case 3:
-            nome = "Slime";
-
+            classe = "Forte";
+            //Atributos gerados que nunca serão iguais a 0
+            this.vidatot = n.nextInt(70) + 30;
+            this.dano = n.nextInt(15) + 5;
+            this.atkspeed = 3;
             break;
-
-            default:
 
         }
 
@@ -44,7 +49,7 @@ public class Monstro {
 
         switch(categoria){
             case 1:
-            nome = "Esqueleto";
+            classe = "Esqueleto";
             break;
 
             case 2:
@@ -62,6 +67,7 @@ public class Monstro {
     }
 
     public int getDano() {
+        System.out.println(this.dano);
         return dano;
     }
 
@@ -70,6 +76,7 @@ public class Monstro {
     }
 
     public int getAtkspeed() {
+        System.out.println(this.atkspeed);
         return atkspeed;
     }
 
@@ -78,6 +85,7 @@ public class Monstro {
     }
 
     public int getCategoria() {
+        System.out.println(this.categoria);
         return categoria;
     }
 
@@ -86,6 +94,7 @@ public class Monstro {
     }
 
     public int getVidatot() {
+        System.out.println(this.vidatot);
         return vidatot;
     }
 
@@ -93,12 +102,13 @@ public class Monstro {
         this.vidatot = vidatot;
     }
 
-    public String getNome() {
-        return nome;
+    public String getclasse() {
+        System.out.println(this.classe);
+        return classe;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setclasse(String classe) {
+        this.classe = classe;
     }
 
 }

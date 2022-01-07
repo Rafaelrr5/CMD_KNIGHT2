@@ -15,7 +15,7 @@ public class Batalha {
 
     protected Batalha(Personagem user, int escolha) throws IOException, InterruptedException{
 
-        Monstro novo = new Monstro();
+        Esqueleto novo = new Esqueleto();
         Scanner ent = new Scanner(System.in);
         vidamonstro = novo.getVidatot();
         vidaplayer = user.getVidatotal();
@@ -71,7 +71,7 @@ public class Batalha {
     //Batalha do tutorial
     protected Batalha(Personagem user, int confirma, int escolha){ 
 
-        Monstro novo = new Monstro();
+        Esqueleto novo = new Esqueleto();
         Scanner ent = new Scanner(System.in);
         vidamonstro = novo.getVidatot();
         vidaplayer = user.getVidatotal();

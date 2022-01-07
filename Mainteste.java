@@ -2,14 +2,20 @@ public class Mainteste {
     
     public static void main(String[] args) {
 
-        Personagem a = new Personagem(1,1);
-        Personagem b = new Personagem(1);
+        Esqueleto n = new Esqueleto();
 
-        System.out.println(a.getAtkspeedtotal()); 
-        System.out.println(a.getAtktotal());
-        System.out.println(b.getAtkspeedtotal());
-        System.out.println(b.getAtktotal());
+        //Simulação da criação de monstro em batalha
+        System.out.println("Monstro:");
+        n.getCategoria();
+        n.getclasse();
+        n.getDano();
+        n.getAtkspeed();
+        n.getVidatot();
+        
 
+        //Simulação da aleatoriedade dos ataques de boss
+        System.out.println("Boss:");
+        //Aqui vão ficar os métodos de dragão maluco
     }
 
 }
